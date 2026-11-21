@@ -392,7 +392,166 @@ tbody tr:nth-child(even) { background:#f8faff; }
                         <span class="record-tag pending">Not Available</span>
                     </div>
                     <div class="record-card">
-                        <h3>Grade Record 02</h3>
+                        <h3>Grade Record 03</h3>
+                        <span class="record-label">Units</span><div class="record-value">2 Units</div>
+                        <span class="record-label">Section</span><div class="record-value">LFCA111N011</div>
+                        <span class="record-label">Average</span><div class="record-value">—</div>
+                        <span class="record-label">Grade</span><div class="record-value">—</div>
+                        <span class="record-tag pending">Not Available</span>
+                    </div>
+                    <div class="record-card">
+                        <h3>Grade Record 04</h3>
+                        <span class="record-label">Units</span><div class="record-value">4 Units</div>
+                        <span class="record-label">Section</span><div class="record-value">LFCA111N011</div>
+                        <span class="record-label">Average</span><div class="record-value">—</div>
+                        <span class="record-label">Grade</span><div class="record-value">—</div>
+                        <span class="record-tag pending">Not Available</span>
+                    </div>
+                    <div class="record-card">
+                        <h3>Grade Record 05</h3>
                         <span class="record-label">Units</span><div class="record-value">3 Units</div>
                         <span class="record-label">Section</span><div class="record-value">LFCA111N011</div>
-                        <span class="record-label">Average</span><d
+                        <span class="record-label">Average</span><div class="record-value">—</div>
+                        <span class="record-label">Grade</span><div class="record-value">—</div>
+                        <span class="record-tag pending">Not Available</span>
+                    </div>
+                    <div class="record-card">
+                        <h3>Grade Record 06</h3>
+                        <span class="record-label">Units</span><div class="record-value">3 Units</div>
+                        <span class="record-label">Section</span><div class="record-value">LFCA111N011</div>
+                        <span class="record-label">Average</span><div class="record-value">—</div>
+                        <span class="record-label">Grade</span><div class="record-value">—</div>
+                        <span class="record-tag pending">Not Available</span>
+                    </div>
+                </div>
+                <p class="ledger-note">Grades and averages were not visible in the provided screenshots, so they are left blank rather than invented.</p>
+            </section>
+
+            <!-- ANNOUNCEMENTS -->
+            <section id="announcements" class="section">
+                <div class="announcement-header">
+                    <h2>Announcements</h2>
+                    <p>Stay updated with the latest news and ICCT AIMs information.</p>
+                </div>
+
+                <div class="featured-announcement">
+                    <small>★ FEATURED ANNOUNCEMENT</small>
+                    <h2>Welcome to Academic Year 2026-2027!</h2>
+                    <p>Welcome, students! Stay informed with the latest academic updates, activities, and important announcements.</p>
+                </div>
+
+                <h3 class="announcement-label">Latest Announcements</h3>
+                <div class="announcement-container">
+                    <div class="announcement-list">
+                        <div class="announcement-info">
+                            <span class="announcement-tag important">IMPORTANT</span>
+                            <span class="announcement-date">November 19, 2026</span>
+                        </div>
+                        <h3>Academic Advisory</h3>
+                        <p>Students are encouraged to regularly check their academic information and monitor important ICCT AIMs updates.</p>
+                    </div>
+
+                    <div class="announcement-list">
+                        <div class="announcement-info">
+                            <span class="announcement-tag">ACADEMIC</span>
+                            <span class="announcement-date">November 18, 2026</span>
+                        </div>
+                        <h3>Class Schedule Reminder</h3>
+                        <p>Please review your class schedules and check your respective subjects regularly.</p>
+                    </div>
+
+                    <div class="announcement-list">
+                        <div class="announcement-info">
+                            <span class="announcement-tag event">EVENT</span>
+                            <span class="announcement-date">November 17, 2026</span>
+                        </div>
+                        <h3>Upcoming ICCT AIMs Activities</h3>
+                        <p>Students are encouraged to participate in upcoming ICCT AIMs activities and programs.</p>
+                    </div>
+
+                    <div class="announcement-list">
+                        <div class="announcement-info">
+                            <span class="announcement-tag">ACADEMIC</span>
+                            <span class="announcement-date">November 15, 2026</span>
+                        </div>
+                        <h3>Examination Preparation</h3>
+                        <p>Prepare your academic requirements and review your lessons for upcoming examinations.</p>
+                    </div>
+                </div>
+                <p class="ledger-note">These are sample announcements for the portal demonstration, not official school notices.</p>
+            </section>
+
+        </div>
+    </main>
+</div>
+
+<script>
+let registeredName = "";
+let registeredEmail = "";
+let registeredPassword = "";
+
+function register() {
+    registeredName = document.getElementById("regName").value.trim();
+    registeredEmail = document.getElementById("regEmail").value.trim();
+    registeredPassword = document.getElementById("regPass").value;
+
+    if (!registeredName || !registeredEmail || !registeredPassword) {
+        alert("Please complete all fields!");
+        return;
+    }
+    if (registeredPassword.length < 6) {
+        alert("Password must be at least 6 characters.");
+        return;
+    }
+
+    alert("Registration successful! You can now log in.");
+    showLogin();
+}
+
+function showLogin() {
+    document.getElementById("signup").style.display = "none";
+    document.getElementById("login").style.display = "flex";
+}
+
+function showSignup() {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("signup").style.display = "flex";
+}
+
+function loginUser() {
+    const email = document.getElementById("loginEmail").value.trim();
+    const password = document.getElementById("loginPass").value;
+
+    if (registeredEmail && email === registeredEmail && password === registeredPassword) {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("signup").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+
+        document.getElementById("studentDisplay").textContent = registeredName;
+        document.getElementById("profileName").textContent = registeredName;
+        document.getElementById("profileEmail").textContent = registeredEmail;
+        showSection("home", document.querySelector(".sidebar p"));
+    } else {
+        alert("Incorrect email or password. Please register first or check your login details.");
+    }
+}
+
+function logout() {
+    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("login").style.display = "flex";
+    document.getElementById("loginEmail").value = "";
+    document.getElementById("loginPass").value = "";
+    alert("You have logged out successfully!");
+}
+
+function showSection(sectionID, clickedItem) {
+    document.querySelectorAll(".section").forEach(section => section.classList.remove("active"));
+    document.getElementById(sectionID).classList.add("active");
+
+    document.querySelectorAll(".sidebar p").forEach(item => item.classList.remove("active"));
+    if (clickedItem) clickedItem.classList.add("active");
+}
+</script>
+
+</body>
+</html>
